@@ -7,12 +7,13 @@ export default function Category() {
     <View>
       <FlatList
         data={Categories}
-        renderItem={({ item }) => {
-          return <CategoryItem name={item.text} imageUrl={item.imageURL} />;
+        renderItem={({ item, index }) => {
+          return <CategoryItem key={index} index={index}  name={item.text} imageUrl={item.imageURL} />;
         }}
         horizontal
         showsHorizontalScrollIndicator={false}
         keyExtractor={(category) => category.name}
+        key={Categories.entries()}
       />
     </View>
   );
